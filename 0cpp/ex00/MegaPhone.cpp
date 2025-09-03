@@ -1,13 +1,11 @@
-#include "iostream"
+#include <iostream>
+#include <string>
+#include <cctype>
 
-void	ft_upper(std::string str)
+void	ft_upper(const std::string& str)
 {
-	char up;
-	for (int i = 0; i < (int)str.length(); i++)
-	{
-		up = (char)std::toupper(str[i]);
-		std::cout << up;
-	}
+	for (size_t i = 0; i < str.length(); i++)
+		std::cout << (char)std::toupper(str[i]);
 }
 
 int	main(int c, char **v)
