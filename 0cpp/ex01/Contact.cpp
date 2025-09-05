@@ -1,4 +1,4 @@
-#include "contact.hpp"
+#include "Contact.hpp"
 
 /************************************************ constructor definition *************************************************/
 Contact::Contact()

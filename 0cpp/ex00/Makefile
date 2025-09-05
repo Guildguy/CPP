@@ -7,7 +7,7 @@ FLAGS := -Wall -Wextra -Werror -std=c++98
 SRC_DIR := .
 OBJ_DIR := obj
 
-CPP_FILES := megaphone.cpp
+CPP_FILES := MegaPhone.cpp
 OBJ_FILES := $(patsubst %.cpp, $(OBJ_DIR)/%.o, $(CPP_FILES))
 
 all: $(NAME)

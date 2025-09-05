@@ -1,4 +1,4 @@
-#include "phonebook.hpp"
+#include "PhoneBook.hpp"
 
 void	handleSignal(int sig)
 {
@@ -10,7 +10,7 @@ void	handleSignal(int sig)
 
 int	main(void)
 {
-	PhoneBook	Phonebook;
+	Phonebook	Phonebook;
 	Contact		NewContact;
 	std::string	line;
 

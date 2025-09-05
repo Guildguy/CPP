@@ -5,9 +5,9 @@
 # include <iomanip>
 # include <sstream>
 # include <csignal>
-# include "contact.hpp"
+# include "Contact.hpp"
 
-class PhoneBook
+class Phonebook
 {
 	private:
 		Contact	contacts[8];
@@ -15,8 +15,8 @@ class PhoneBook
 		int 	Counter;
 	
 	public:
-		PhoneBook();
-		~PhoneBook();
+		Phonebook();
+		~Phonebook();
 
 		void	DisplayInfo();
 		Contact	CreateContact();

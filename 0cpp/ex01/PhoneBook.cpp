@@ -1,16 +1,16 @@
-#include "phonebook.hpp"
+#include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook() : Index(0), Counter(0)
+Phonebook::Phonebook() : Index(0), Counter(0)
 {
 	return ;
 }
 
-PhoneBook::~PhoneBook()
+Phonebook::~Phonebook()
 {
 	return ;
 }
 
-void    PhoneBook::DisplayInfo(void) {
+void    Phonebook::DisplayInfo(void) {
     std::cout << "=======================================" << std::endl;
     std::cout << "|        This is your phonebook       |" << std::endl;
     std::cout << "=======================================" << std::endl;
@@ -27,7 +27,7 @@ void    PhoneBook::DisplayInfo(void) {
     std::cout << "Command: ";
 }
 
-Contact PhoneBook::CreateContact(void)
+Contact Phonebook::CreateContact(void)
 {
 	Contact		NewContact;
 	std::string	line;
@@ -65,7 +65,7 @@ static bool Whitespace(const std::string& str)
 	return (true);
 }
 
-void	PhoneBook::Add(Contact NewContact)
+void	Phonebook::Add(Contact NewContact)
 {
 	std::string line;
 
@@ -90,7 +90,7 @@ void	PhoneBook::Add(Contact NewContact)
 	}
 }
 
-void	PhoneBook::ContactListInfo(void)
+void	Phonebook::ContactListInfo(void)
 {
 	std::cout << "|" << std::setw(10) << std::right << "Index" << "|";
 	std::cout << std::setw(10) << std::right << "First Name" << "|";
@@ -98,7 +98,7 @@ void	PhoneBook::ContactListInfo(void)
 	std::cout << std::setw(10) << std::right << "Nick Name" << "|" << std::endl;
 }
  
-void	PhoneBook::SearchContactsByIndex()
+void	Phonebook::SearchContactsByIndex()
 {
 	std::string			line;
 	int					index;
@@ -127,7 +127,7 @@ void	PhoneBook::SearchContactsByIndex()
 	getline(std::cin, line);
 }
 
-void	PhoneBook::Search(void)
+void	Phonebook::Search(void)
 {
 	std::string	line;
 
