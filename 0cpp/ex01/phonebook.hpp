@@ -2,7 +2,10 @@
 # define PHONEBOOK_HPP
 
 # include <iostream>
-# include "Contact.hpp"
+# include <iomanip>
+# include <sstream>
+# include <csignal>
+# include "contact.hpp"
 
 class PhoneBook
 {
@@ -10,16 +13,17 @@ class PhoneBook
 		Contact	contacts[8];
 		int 	Index;
 		int 	Counter;
-		int 	NIndex;
 	
 	public:
 		PhoneBook();
 		~PhoneBook();
 
+		void	DisplayInfo();
 		Contact	CreateContact();
-		void	add(Contact NewContact);
-		
-
+		void	Add(Contact NewContact);
+		void	ContactListInfo();
+		void	SearchContactsByIndex();
+		void	Search();
 };
 
 #endif

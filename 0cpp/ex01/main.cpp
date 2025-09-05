@@ -1,48 +1,51 @@
-#include "PhoneBook.hpp"
+#include "phonebook.hpp"
 
-int	main(int c, char **v)
+void	handleSignal(int sig)
 {
-	char f_name[100], l_name[100], n_name[100], dark_s[500];
-	int  p_nbr;
+	if (sig == SIGINT) {
+        std::cerr << " Signal interrupt (Ctrl+C) detected." << std::endl;
+        _exit(0);
+    }
+}
 
-	if (c == 1)
+int	main(void)
+{
+	PhoneBook	Phonebook;
+	Contact		NewContact;
+	std::string	line;
+
+	std::signal(SIGINT, handleSignal);
+	while (6)
 	{
-		std::cout << "Welcome to the Phonebook!" << std::endl;
-		std::cout << "Available commands: ADD, SEARCH, EXIT" << std::endl;
-	}
-	if (c == 2)
+		Phonebook.DisplayInfo();
+		getline(std::cin, line);
+
+		if (line == "ADD")
 		{
-			if (std::string(v[1]) == "SEARCH")
-			{
-				displayPhonebook();
-				std::cout << "No contacts found. Please add contacts using 'ADD' command." << std::endl;
-				return (0);
-			}
-			if (std::string(v[1]) == "EXIT")
-			{
-				std::cout << "Exiting the phonebook. Goodbye!" << std::endl;
-				return (0);
-			}
-			if (std::string(v[1]) == "ADD")
-			{
-				std::cout << "Enter first name: ";
-				std::cin >> f_name;
-
-				std::cout << "Enter last name: ";
-				std::cin >> l_name;
-
-				std::cout << "Enter nickname: ";
-				std::cin >> n_name;
-
-				std::cout << "Enter phone number: ";
-				std::cin >> p_nbr;
-
-				std::cout << "Enter darkest secret: ";
-				std::cin >> dark_s;
-
-				std::cout << "Contact added successfully!" << std::endl;
-			}
-			else
-				std::cout << "Invalid command. Use 'ADD' to add a contact." << std::endl;
+			NewContact = Phonebook.CreateContact();
+			Phonebook.Add(NewContact);
 		}
+		else if (line == "SEARCH")
+			Phonebook.Search();
+		else if (line == "EXIT")
+		{
+			std::cout << "See ya!" << std::endl;
+			getline(std::cin, line);
+			std::cout << "\033[2J\033[1;1H";
+			break ;
+		}
+		else
+		{
+			std::cout << "Please, put a valid a command! read the commands above!" << std::endl;
+			std::cout << "Type to continue..." << std::endl;
+			getline(std::cin, line);
+		}
+		if (std::cin.eof())
+		{
+			std::cerr << "EOF detected!" << std::endl;
+			break ;
+		}
+		std::cout << "\033[2J\033[1;1H";
+	}
+	return (0);
 }

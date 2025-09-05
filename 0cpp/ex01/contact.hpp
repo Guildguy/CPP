@@ -4,8 +4,6 @@
 # include <iostream>
 # include <string>
 
-void	displayPhonebook(void);
-
 class	Contact
 {
 	private: //all below is atribute
@@ -33,6 +31,5 @@ class	Contact
 		void	SetPhoneNumber(const std::string& SetPhoneNumber);
 		void	SetDarkestSecret(const std::string& SetDarkestSecret);
 };
-
 
 #endif
