@@ -29,8 +29,6 @@ int	main(void)
 			Phonebook.Search();
 		else if (line == "EXIT")
 		{
-			std::cout << "See ya!" << std::endl;
-			getline(std::cin, line);
 			std::cout << "\033[2J\033[1;1H";
 			break ;
 		}

@@ -61,11 +61,7 @@ void	Contact::SetPhoneNumber(const std::string& SetPhoneNumber)
 		if (i == 0 && SetPhoneNumber[i] == '+')
 			continue;
 		if (!std::isdigit(SetPhoneNumber[i]))
-		{
-			std::cout << "-> Invalid character in phone number. Only digits and a leading '+' are allowed." << std::endl;
-			this->PhoneNumber = "";
 			return ;
-		}
 	}
 	this->PhoneNumber = SetPhoneNumber;
 }
