@@ -9,10 +9,13 @@ class Zombie
 		std::string	Name;
 	
 	public:
-		Zombie();
+		Zombie(std::string Name);
 		~Zombie();
 
 		void	announce(void);
 };
+
+void	randomChump(std::string Name);
+Zombie* newZombie( std::string Name);
 
 #endif
