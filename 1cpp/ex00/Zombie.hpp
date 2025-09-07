@@ -2,6 +2,7 @@
 # define ZOMBIE_HPP
 
 # include <iostream>
+# include <string>
 
 class Zombie
 {
@@ -12,10 +13,10 @@ class Zombie
 		Zombie(std::string Name);
 		~Zombie();
 
-		void	announce(void);
+		void		announce(void);
 };
 
 void	randomChump(std::string Name);
-Zombie* newZombie( std::string Name);
+Zombie* newZombie(std::string Name);
 
 #endif
