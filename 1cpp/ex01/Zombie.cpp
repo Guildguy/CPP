@@ -1,9 +1,6 @@
 #include "Zombie.hpp"
 
-Zombie::Zombie()
-{
-	return ;
-}
+Zombie::Zombie() {}
 
 Zombie::~Zombie()
 {
