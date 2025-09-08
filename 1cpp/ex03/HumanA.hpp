@@ -6,7 +6,7 @@
 class	HumanA
 {
 	private:
-		Weapon		type;
+		Weapon&		type;
 		std::string	name;
 	
 	public:
