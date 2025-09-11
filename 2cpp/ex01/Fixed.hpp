@@ -7,17 +7,21 @@
 class	Fixed
 {
 	private:
-		int					fixedPointNUmber;
-		static const int	fractionalBits;
+		int					Number;
+		static const int	Bits;
 	
 	public:
-		Fixed(const int	value); //contrutor
+		Fixed();
+		Fixed(const int iNbr);
+		Fixed(const float fNbr);
 		Fixed(const Fixed &copy); //construtor de cópia
 		Fixed&	operator=(const Fixed &fixed); 	//operador de atribuição
 		~Fixed(); //destrutor
 
-		float	toFloat(void) const;
 		int		toInt(void) const;
+		float	toFloat(void) const;
 };
+
+std::ostream&	operator<<(std::ostream& os, const Fixed& fixed);
 
 #endif
