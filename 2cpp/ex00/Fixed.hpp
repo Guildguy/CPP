@@ -11,12 +11,13 @@ class	Fixed
 	
 	public:
 		Fixed(); //contrutor
-		Fixed(const Fixed &copy); //construtor de cópia
-		Fixed&	operator=(const Fixed &fixed); 	//operador de atribuição
 		~Fixed(); //destrutor
 
-		int		getRawBits(void) const;
+		Fixed(const Fixed &copy); //construtor de cópia
 
+		Fixed&	operator=(const Fixed &fixed); 	//operador de atribuição
+
+		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
 };
 

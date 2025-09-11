@@ -12,11 +12,13 @@ class	Fixed
 	
 	public:
 		Fixed();
+		~Fixed(); //destrutor
+
+		Fixed(const Fixed &copy); //construtor de cópia
 		Fixed(const int iNbr);
 		Fixed(const float fNbr);
-		Fixed(const Fixed &copy); //construtor de cópia
+
 		Fixed&	operator=(const Fixed &fixed); 	//operador de atribuição
-		~Fixed(); //destrutor
 
 		int		toInt(void) const;
 		float	toFloat(void) const;
