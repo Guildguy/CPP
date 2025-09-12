@@ -7,6 +7,11 @@ Fixed::Fixed() : Number(0)
 	std::cout << "Default constructor called" << std::endl;
 }
 
+Fixed::~Fixed()
+{
+	std::cout << "Destructor called" << std::endl;
+}
+
 Fixed::Fixed(const int iNbr)
 {
 	std::cout << "Int constructor called" << std::endl;
@@ -47,9 +52,4 @@ Fixed&	Fixed::operator=(const Fixed &fixed)
 	if (this != &fixed)
 		this->Number = fixed.Number;
 	return (*this);
-}
-
-Fixed::~Fixed()
-{
-	std::cout << "Destructor called" << std::endl;
 }

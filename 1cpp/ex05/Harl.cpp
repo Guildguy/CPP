@@ -31,7 +31,7 @@ void	Harl::error()
 void	Harl::complain(std::string level)
 {
 	typedef void	(Harl::*HarlLevel)();
-	std::string		levels[] = {"DEBBUG", "INFO", "WARNING", "ERROR"};
+	std::string		levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	HarlLevel		functions[] = {&Harl::debug, &Harl::info, \
 								&Harl::warning, &Harl::error};
 

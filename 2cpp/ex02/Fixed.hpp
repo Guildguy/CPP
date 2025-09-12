@@ -11,28 +11,43 @@ class	Fixed
 		static const int	Bits;
 	
 	public:
-		Fixed();
+		Fixed(); //construtor
 		~Fixed(); //destrutor
 
 		Fixed(const Fixed &copy); //construtor de cópia
+		Fixed(const int iNbr); //sobrecarga de contrutor para inicialização de int
+		Fixed(const float fNbr); //sobrecarga de contrutor para inicialização de float
 
-		Fixed&	operator=(const Fixed &fixed); 	//operador de atribuição
-		Fixed	operator+(const Fixed &N) const;
-		Fixed	operator-(const Fixed &N) const;
-		Fixed	operator*(const Fixed &N) const;
-		Fixed	operator/(const Fixed &N) const;
+		//operador de atribuição
+		Fixed&				operator=(const Fixed &fixed);
 
-		bool	operator<(const Fixed &N) const;
-		bool	operator>(const Fixed &N) const;
-		bool	operator<=(const Fixed &N) const;
-		bool	operator>=(const Fixed &N) const;
-		bool	operator==(const Fixed &N) const;
-		bool	operator!=(const Fixed &N) const;
+		//operador aritmético
+		Fixed				operator+(const Fixed &N) const;
+		Fixed				operator-(const Fixed &N) const;
+		Fixed				operator*(const Fixed &N) const;
+		Fixed				operator/(const Fixed &N) const;
 
-		Fixed	&operator++();
-		Fixed	operator++(int);
-		Fixed	&operator--();
-		Fixed	operator--(int);
+		//operador de comparação
+		bool				operator<(const Fixed &N) const;
+		bool				operator>(const Fixed &N) const;
+		bool				operator<=(const Fixed &N) const;
+		bool				operator>=(const Fixed &N) const;
+		bool				operator==(const Fixed &N) const;
+		bool				operator!=(const Fixed &N) const;
+
+		//operador de incremento/decremento
+		Fixed				&operator++();   //++i;
+		Fixed				operator++(int); //i++;
+		//Fixed				&operator--();   //--i;
+		//Fixed				operator--(int); //i--;
+
+		int					toInt(void) const;
+		float				toFloat(void) const;
+
+		static Fixed		&min(Fixed &n1, Fixed &n2);
+		static const Fixed	min(const Fixed &n1, const Fixed &n2);
+		static Fixed		&max(Fixed &n1, Fixed &n2);
+		static const Fixed	max(const Fixed &n1, const Fixed &n2);
 };
 
 std::ostream&	operator<<(std::ostream& os, const Fixed& fixed);
