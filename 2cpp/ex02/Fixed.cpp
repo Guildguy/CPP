@@ -1,9 +1,9 @@
 #include "Fixed.hpp"
 
-const int	Fixed::Bits = 8;
+const int	Fixed::fractionalBits = 8;
 
  //Construtor
-Fixed::Fixed() : Number(0) {}
+Fixed::Fixed() : fixedPointNumber(0) {}
 
  //Destrutor
 Fixed::~Fixed() {}
@@ -11,7 +11,18 @@ Fixed::~Fixed() {}
  //Cópia do construtor
 Fixed::Fixed(const Fixed &copy)
 {
-	this->Number = copy.Number;
+	this->fixedPointNumber = copy.fixedPointNumber;
+}
+
+int	Fixed::getRawBits(void) const
+{
+	std::cout << "getRawBits member function called" << std::endl;
+	return (this->fixedPointNumber);
+}
+
+void	Fixed::setRawBits(int const raw)
+{
+	this->fixedPointNumber = raw;
 }
 
  //operador de sobrecarga
@@ -25,13 +36,13 @@ std::ostream&	operator<<(std::ostream& os, const Fixed& fixed)
  //sobrecarga de contrutor para inicialização de int
 Fixed::Fixed(const int iNbr)
 {
-	Number = iNbr << Bits;
+	fixedPointNumber = iNbr << fractionalBits;
 }
 
  //sobrecarga de contrutor para inicialização de float
 Fixed::Fixed(const float fNbr)
 {
-	Number = roundf(fNbr * (1 << Bits));
+	fixedPointNumber = roundf(fNbr * (1 << fractionalBits));
 }
 
 /*************** sobrecarga de operador ************** */
@@ -39,21 +50,21 @@ Fixed::Fixed(const float fNbr)
 Fixed&	Fixed::operator=(const Fixed &fixed)
 {
 	if (this != &fixed)
-		this->Number = fixed.Number;
+		this->fixedPointNumber = fixed.fixedPointNumber;
 	return (*this);
 }
 
 /***************** métodos ***************** */
- //método que converte Number para um int
+ //método que converte fixedPointNumber para um int
 int	Fixed::toInt(void) const
 {
-	return (Number >> Bits);
+	return (fixedPointNumber >> fractionalBits);
 }
 
- //método que converte Number para um float
+ //método que converte fixedPointNumber para um float
 float	Fixed::toFloat(void) const
 {
-	return ((float)Number / (1 << Bits));
+	return ((float)fixedPointNumber / (1 << fractionalBits));
 }
 
 /***************** operador aritmético ***************** */
@@ -82,59 +93,59 @@ Fixed	Fixed::operator/(const Fixed &N) const
 
 bool	Fixed::operator<(const Fixed &N) const
 {
-	return (Number < N.Number);
+	return (fixedPointNumber < N.fixedPointNumber);
 }
 
 bool	Fixed::operator>(const Fixed &N) const
 {
-	return (Number > N.Number);
+	return (fixedPointNumber > N.fixedPointNumber);
 }
 
 bool	Fixed::operator<=(const Fixed &N) const
 {
-	return (Number <= N.Number);
+	return (fixedPointNumber <= N.fixedPointNumber);
 }
 
 bool	Fixed::operator>=(const Fixed &N) const
 {
-	return (Number >= N.Number);
+	return (fixedPointNumber >= N.fixedPointNumber);
 }
 
 bool	Fixed::operator==(const Fixed &N) const
 {
-	return (Number == N.Number);
+	return (fixedPointNumber == N.fixedPointNumber);
 }
 
 bool	Fixed::operator!=(const Fixed &N) const
 {
-	return (Number != N.Number);
+	return (fixedPointNumber != N.fixedPointNumber);
 }
 
 /***************** operador incr./decr. ******************* */
 
 Fixed&	Fixed::operator++(void)
 {
-	Number += 1;
+	fixedPointNumber += 1;
 	return (*this);
 }
 
 Fixed	Fixed::operator++(int)
 {
 	Fixed	temporary = *this;
-	Number += 1;
+	fixedPointNumber += 1;
 	return (temporary);
 }
 
 /*Fixed&	Fixed::operator--(void)
 {
-	Number -= 1;
+	fixedPointNumber -= 1;
 	return (*this);
 }*/
 
 /*Fixed	Fixed::operator--(int)
 {
 	Fixed	temporary = *this;
-	Number -= 1;
+	fixedPointNumber -= 1;
 	return (temporary);
 }*/
 

@@ -7,16 +7,20 @@
 class	Fixed
 {
 	private:
-		int					Number;
-		static const int	Bits;
+		int					fixedPointNumber;
+		static const int	fractionalBits;
 	
 	public:
 		Fixed(); //construtor
 		~Fixed(); //destrutor
 
 		Fixed(const Fixed &copy); //construtor de cópia
+		
 		Fixed(const int iNbr); //sobrecarga de contrutor para inicialização de int
 		Fixed(const float fNbr); //sobrecarga de contrutor para inicialização de float
+
+		int		getRawBits(void) const;
+		void	setRawBits(int const raw);
 
 		//operador de atribuição
 		Fixed&				operator=(const Fixed &fixed);

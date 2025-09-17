@@ -15,10 +15,10 @@ class	Fixed
 
 		Fixed(const Fixed &copy); //construtor de cópia
 
-		Fixed&	operator=(const Fixed &fixed); 	//operador de atribuição
-
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
+
+		Fixed&	operator=(const Fixed &fixed); 	//operador de atribuição
 };
 
 #endif
