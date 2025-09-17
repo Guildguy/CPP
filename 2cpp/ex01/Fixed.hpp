@@ -22,7 +22,7 @@ class	Fixed
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
 
-		Fixed&	operator=(const Fixed &fixed); 	//operador de atribuição
+		Fixed&	operator=(const Fixed& fixed); 	//operador de atribuição
 
 		int		toInt(void) const;
 		float	toFloat(void) const;
