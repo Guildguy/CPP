@@ -2,7 +2,7 @@ NAME := ClapTrap
 
 CC := c++
 
-FLAGS := -Wall -Wextra -Werror -std=c++98
+FLAGS := -std=c++98
 
 SRC_DIR := .
 OBJ_DIR := obj
