@@ -11,7 +11,7 @@ Fixed::~Fixed() {}
  //Cópia do construtor
 Fixed::Fixed(const Fixed &copy)
 {
-	this->fixedPointNumber = copy.fixedPointNumber;
+	*this = copy;
 }
 
 int	Fixed::getRawBits(void) const
