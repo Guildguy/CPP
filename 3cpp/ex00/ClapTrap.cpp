@@ -2,13 +2,18 @@
 
 ClapTrap::ClapTrap() : name("Cloud")/*, HP(10), EP(10), AttackDmg(0)*/
 {
+	std::cout << "Default constructor called" << std::endl;
 	this->PersonStatus();
 }
 
-ClapTrap::~ClapTrap() {};
+ClapTrap::~ClapTrap()
+{
+	std::cout << "Destructor called for ClapTrap " << name << std::endl;
+};
 
 ClapTrap::ClapTrap(std::string name) : name(name)/*, HP(10), EP(10), AttackDmg(0)*/
 {
+	std::cout << "Parametric constructor called for ClapTrap " << name << std::endl;
 	this->PersonStatus();
 }
 
