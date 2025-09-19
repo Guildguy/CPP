@@ -10,7 +10,7 @@ class ClapTrap
 		unsigned int	HP;
 		unsigned int	EP;
 		unsigned int	AttackDmg;
-		void			PersonStatus();
+		//void			PersonStatus();
 
 	public:
 		ClapTrap();

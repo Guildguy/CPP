@@ -18,6 +18,8 @@ int	main(void)
 	{
 		std::cout << "you can't do a HighFive with " << Enemy.getName() << \
 		" 'cause it's dead!" << std::endl;
+		std::cout << Enemy << std::endl;
+		std::cout << Person << std::endl;
 		return (1);
 	}
 	Person.highFivesGuys();

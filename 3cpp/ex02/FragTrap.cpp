@@ -21,7 +21,7 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
 	this->AttackDmg = 30;
 }
 
-FragTrap::FragTrap(const FragTrap &copy)
+FragTrap::FragTrap(const FragTrap &copy) : ClapTrap(copy)
 {
 	*this = copy;
 }

@@ -21,7 +21,7 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 	this->AttackDmg = 20;
 }
 
-ScavTrap::ScavTrap(const ScavTrap& copy)
+ScavTrap::ScavTrap(const ScavTrap& copy) : ClapTrap(copy)
 {
 	*this = copy;
 }

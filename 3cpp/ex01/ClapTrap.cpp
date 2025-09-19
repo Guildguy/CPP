@@ -3,26 +3,26 @@
 ClapTrap::ClapTrap() : name("Cloud")/*, HP(10), EP(10), AttackDmg(0)*/
 {
 	std::cout << "ClapTrap default constructor called" << std::endl;
-	this->PersonStatus();
+	//this->PersonStatus();
 }
 
 ClapTrap::~ClapTrap()
 {
 	std::cout << "Destructor called for ClapTrap " << name << std::endl;
-};
-
-ClapTrap::ClapTrap(std::string name) : name(name)/*, HP(10), EP(10), AttackDmg(0)*/
-{
-	std::cout << "Parametric constructor called for ClapTrap " << name << std::endl;
-	this->PersonStatus();
 }
 
-void	ClapTrap::PersonStatus(void)
+ClapTrap::ClapTrap(std::string name) : name(name), HP(10), EP(10), AttackDmg(0)
+{
+	std::cout << "Parametric constructor called for ClapTrap " << name << std::endl;
+	//this->PersonStatus();
+}
+
+/*void	ClapTrap::PersonStatus(void)
 {
 	this->HP = 10;
 	this->EP = 10;
 	this->AttackDmg = 0;
-}
+}*/
 
 ClapTrap::ClapTrap(const ClapTrap& copy)
 {
