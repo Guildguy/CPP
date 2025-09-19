@@ -2,7 +2,7 @@
 
 ClapTrap::ClapTrap() : name("Cloud")/*, HP(10), EP(10), AttackDmg(0)*/
 {
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "ClapTrap default constructor called" << std::endl;
 	this->PersonStatus();
 }
 

@@ -2,11 +2,13 @@
 
 int	main(void)
 {
-	ClapTrap	a;
+	ClapTrap	person;
 
-	a.Attack("Alice");
+	std::cout << person;
+	person.Attack("Alice");
 	std::cout << "Alice attacked, ";
-	a.takeDamage(8);
-	a.beRepaired(2);
+	person.takeDamage(8);
+	person.beRepaired(2);
+	std::cout << person;
 	return (0);
 }
