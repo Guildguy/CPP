@@ -2,8 +2,9 @@
 # define CAT_HPP
 
 # include "Brain.hpp"
+# include "Animal.hpp"
 
-class Cat : public Brain
+class Cat : public Animal
 {
 	private:
 		Brain*	brain;

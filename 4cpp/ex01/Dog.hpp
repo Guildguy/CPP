@@ -2,8 +2,9 @@
 # define DOG_HPP
 
 # include "Brain.hpp"
+# include "Animal.hpp"
 
-class Dog : public Brain
+class Dog : public Animal
 {
 	private:
 		Brain*	brain;

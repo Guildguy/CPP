@@ -7,7 +7,7 @@ FLAGS := -Wall -Wextra -Werror -std=c++98
 SRC_DIR := .
 OBJ_DIR := obj
 
-CPP_FILES := Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp main.cpp
+CPP_FILES := Animal.cpp Brain.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp main.cpp
 OBJ_FILES := $(patsubst %.cpp, $(OBJ_DIR)/%.o, $(CPP_FILES))
 
 all: $(NAME)

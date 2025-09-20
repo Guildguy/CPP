@@ -2,17 +2,17 @@
 
 Animal::Animal() : type("none")
 {
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "Default Animal constructor called" << std::endl;
 }
 
 Animal::~Animal()
 {
-	std::cout << "Default destructor called" << std::endl;
+	std::cout << "Default Animal destructor called" << std::endl;
 }
 
 Animal::Animal(const Animal& copy)
 {
-	std::cout << "Default copy constructor called" << std::endl;
+	std::cout << "Default Animal copy constructor called" << std::endl;
 	*this = copy;
 }
 

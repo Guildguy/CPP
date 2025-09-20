@@ -28,4 +28,3 @@ void	WrongCat::makeSound() const
 {
 	std::cout << this->getType() << ": Meown!" << std::endl;
 }
-
