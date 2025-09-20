@@ -11,7 +11,6 @@ class Cat : public Animal
 		Cat();
 		~Cat();
 
-
 		Cat(const Cat& copy);
 		Cat	operator=(const Cat& Cat);
 
