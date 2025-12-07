@@ -34,13 +34,13 @@ int main()
     std::cout << "\n--- 3. SIGNATURE WITHOUT SUFFICIENT GRADE TEST ---" << std::endl;
     try 
     {
-        Bureaucrat  intern("Intern", 150);
+        Bureaucrat  peasant("Peasant", 150);
         Form        topSecret("Top Secret Docs", 10, 10);
 
-        std::cout << intern << std::endl;
+        std::cout << peasant << std::endl;
         std::cout << topSecret << std::endl;
 
-        intern.signForm(topSecret);
+        peasant.signForm(topSecret);
 
         std::cout << topSecret << std::endl;
     } 
