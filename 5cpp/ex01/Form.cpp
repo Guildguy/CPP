@@ -77,7 +77,7 @@ void	Form::beSigned(const Bureaucrat& person)
 	this->isSigned = true;
 }
 
-std::ostream&	operator<<(std::ostream& os, Form& form)
+std::ostream&	operator<<(std::ostream& os, const Form& form)
 {
 	return (os << "Form " << form.getName() 
        << ", status: " << (form.getIsSigned() ? "signed" : "not signed")
