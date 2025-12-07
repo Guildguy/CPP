@@ -7,10 +7,10 @@ isSigned(false),
 signedRating(0), 
 signedExec(0)
 {
-	if (gradeToSign < 1 || gradeToExec < 1)
-		throw Form::GradeTooHighException();
-	if (gradeToSign > 150 || gradeToExec > 150)
-		throw Form::GradeTooLowException();
+	if (signedRating < 1 || signedExec < 1)
+        throw GradeTooHighException();
+    if (signedRating > 150 || signedExec > 150)
+        throw GradeTooLowException();
 }
 
 Form::~Form() {}
@@ -25,6 +25,18 @@ Form&	Form::operator=(const Form& form)
 {
 	(void)form;
 	return (*this);
+}
+
+Form::Form(const std::string name, int gradeToSign, int gradeToExec) :
+name(name),
+isSigned(false),
+signedRating(gradeToSign),
+signedExec(gradeToExec)
+{
+	if (gradeToSign < 1 || gradeToExec < 1)
+		throw GradeTooHighException();
+	if (gradeToSign > 150 || gradeToExec > 150)
+		throw GradeTooLowException();
 }
 
 std::string	Form::getName() const
@@ -49,12 +61,15 @@ int		Form::getSignedExec() const
 
 void	Form::beSigned(const Bureaucrat& person)
 {
-	if (person.getGrade() > this.signedRating)
-		throw	Form::GradeTooLowExeption();
+	if (person.getGrade() > this->signedRating)
+		throw	Form::GradeTooLowException();
 	this->isSigned = true;
 }
 
 std::ostream&	operator<<(std::ostream& os, Form& form)
 {
-	return (os << form.getName() << ", bureaucrat w/ grade " << form.getGrade());
+	return (os << "Form " << form.getName() 
+       << ", status: " << (form.getIsSigned() ? "signed" : "not signed")
+       << ", sign grade: " << form.getSignedRating()
+       << ", exec grade: " << form.getSignedExec());
 }
