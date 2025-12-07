@@ -10,16 +10,22 @@ class	Bureaucrat
 		const std::string	name;
 		int 				grade;
 	public:
+		//CANONNICAL ORTODOXICAL FORM
 		Bureaucrat(); //std constructor
-
-		Bureaucrat(const std::string name, int grade);
-
-		~Bureaucrat(); //destructor
-
+		Bureaucrat(const std::string name, int grade); //constructor w/ parameters
 		Bureaucrat(const Bureaucrat &copy); //copy constructor
-
+		~Bureaucrat(); //destructor
 		Bureaucrat&	operator=(const	Bureaucrat &bureaucrat); //copy assignment operator
 
+		//GETTERS
+		int					getGrade() const;
+		const std::string	getName() const;
+
+		//AUX
+		void				increment(); //--
+		void				decrement(); //++
+
+		//EXCEPTION HANDLER
 		class	GradeTooLowException : public std::exception //exceptions
 		{
 			public:
@@ -31,12 +37,6 @@ class	Bureaucrat
 			public:
 				virtual const char* what() const throw();
 		};
-
-		int					getGrade() const;
-		const std::string	getName() const;
-
-		void				increment(); //--
-		void				decrement(); //++
 };
 
 std::ostream&	operator<<(std::ostream& os, const Bureaucrat& bureaucrat);

@@ -1,8 +1,11 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(void) : name("Marquinhos"), grade(1) {}
+Bureaucrat::Bureaucrat(void) : 
+name("Marquinhos"), 
+grade(1) {}
 
-Bureaucrat::Bureaucrat(const std::string name, int grade) : name(name)
+Bureaucrat::Bureaucrat(const std::string name, int grade) : 
+name(name)
 {
 	if (grade < 1)
 		throw GradeTooHighException();
@@ -11,7 +14,9 @@ Bureaucrat::Bureaucrat(const std::string name, int grade) : name(name)
 	this->grade = grade;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &copy) : name(copy.name), grade(copy.grade) {}
+Bureaucrat::Bureaucrat(const Bureaucrat &copy) : 
+name(copy.name), 
+grade(copy.grade) {}
 
 Bureaucrat::~Bureaucrat(void) {}
 
