@@ -25,8 +25,6 @@ class	Bureaucrat
 		//AUX
 		void				increment(); //--
 		void				decrement(); //++
-
-		//FROM FORM
 		void				signForm(Form& form); //call Form::beSigned()
 
 		//EXCEPTION HANDLER

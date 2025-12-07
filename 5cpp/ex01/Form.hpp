@@ -37,7 +37,6 @@ class	Form
 		int			getSignedExec() const;
 
 		void		beSigned(const Bureaucrat& person);
-		void		signForm(const Form &form);
 };
 
 std::ostream&	operator<<(std::ostream& os, Form& form);
