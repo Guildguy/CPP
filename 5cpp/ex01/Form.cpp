@@ -27,6 +27,16 @@ Form&	Form::operator=(const Form& form)
 	return (*this);
 }
 
+const char* Form::GradeTooHighException::what() const throw()
+{
+	return ("Form grade is too high!");
+}
+
+const char* Form::GradeTooLowException::what() const throw()
+{
+	return ("Form grade is too low!");
+}
+
 Form::Form(const std::string name, int gradeToSign, int gradeToExec) :
 name(name),
 isSigned(false),
