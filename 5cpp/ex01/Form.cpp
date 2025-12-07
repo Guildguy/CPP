@@ -2,7 +2,7 @@
 #include "Bureaucrat.hpp"
 
 Form::Form() : 
-name(NULL), 
+name("Wrong form"), 
 isSigned(false), 
 signedRating(0), 
 signedExec(0)
@@ -33,7 +33,8 @@ signedExec(copy.signedExec) {}
 
 Form&	Form::operator=(const Form& form)
 {
-	(void)form;
+	if (this != &form)
+		this->isSigned = form.getIsSigned();
 	return (*this);
 }
 
