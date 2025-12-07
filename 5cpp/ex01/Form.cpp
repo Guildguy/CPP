@@ -13,7 +13,17 @@ signedExec(0)
         throw GradeTooLowException();
 }
 
-Form::~Form() {}
+Form::Form(const std::string name, int gradeToSign, int gradeToExec) :
+name(name),
+isSigned(false),
+signedRating(gradeToSign),
+signedExec(gradeToExec)
+{
+	if (gradeToSign < 1 || gradeToExec < 1)
+		throw GradeTooHighException();
+	if (gradeToSign > 150 || gradeToExec > 150)
+		throw GradeTooLowException();
+}
 
 Form::Form(const Form &copy) : 
 name(copy.name), 
@@ -27,6 +37,8 @@ Form&	Form::operator=(const Form& form)
 	return (*this);
 }
 
+Form::~Form() {}
+
 const char* Form::GradeTooHighException::what() const throw()
 {
 	return ("Form grade is too high!");
@@ -35,18 +47,6 @@ const char* Form::GradeTooHighException::what() const throw()
 const char* Form::GradeTooLowException::what() const throw()
 {
 	return ("Form grade is too low!");
-}
-
-Form::Form(const std::string name, int gradeToSign, int gradeToExec) :
-name(name),
-isSigned(false),
-signedRating(gradeToSign),
-signedExec(gradeToExec)
-{
-	if (gradeToSign < 1 || gradeToExec < 1)
-		throw GradeTooHighException();
-	if (gradeToSign > 150 || gradeToExec > 150)
-		throw GradeTooLowException();
 }
 
 std::string	Form::getName() const

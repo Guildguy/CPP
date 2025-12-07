@@ -14,8 +14,8 @@ class	Bureaucrat
 		Bureaucrat(); //std constructor
 		Bureaucrat(const std::string name, int grade); //constructor w/ parameters
 		Bureaucrat(const Bureaucrat &copy); //copy constructor
-		~Bureaucrat(); //destructor
 		Bureaucrat&	operator=(const	Bureaucrat &bureaucrat); //copy assignment operator
+		~Bureaucrat(); //destructor
 
 		//GETTERS
 		int					getGrade() const;

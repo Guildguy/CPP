@@ -19,14 +19,14 @@ Bureaucrat::Bureaucrat(const Bureaucrat &copy) :
 name(copy.name), 
 grade(copy.grade) {}
 
-Bureaucrat::~Bureaucrat(void) {}
-
 Bureaucrat&	Bureaucrat::operator=(const	Bureaucrat &bureaucrat)
 {
 	if (this != &bureaucrat)
 		this->grade = bureaucrat.grade;
 	return (*this);
 }
+
+Bureaucrat::~Bureaucrat(void) {}
 
 //GETTERS
 int	Bureaucrat::getGrade() const

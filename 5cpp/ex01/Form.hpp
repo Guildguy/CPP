@@ -14,29 +14,34 @@ class	Form
 		const int			signedRating;
 		const int			signedExec;
 	public:
+		//CANONNICAL ORTODOXICAL FORM
 		Form();
-		~Form();
-
+		Form(const std::string name, int gradeToSign, int gradeToExec);
 		Form(const Form &copy);
 		Form& operator=(const Form& form);
-		Form(const std::string name, int gradeToSign, int gradeToExec);
+		~Form();
 
-		class GradeTooHighException : public std::exception {
-            public:
-                virtual const char* what() const throw();
-        };
-
-        class GradeTooLowException : public std::exception {
-            public:
-                virtual const char* what() const throw();
-        };
-
+		//GETTERS
 		std::string	getName() const;
 		bool		getIsSigned() const;
 		int			getSignedRating() const;
 		int			getSignedExec() const;
 
+		//AUX
 		void		beSigned(const Bureaucrat& person);
+
+		//EXCEPTION HANDLER
+		class	GradeTooLowException : public std::exception //exceptions
+		{
+			public:
+				virtual const char* what() const throw();
+		};
+
+		class	GradeTooHighException : public std::exception //exceptions
+		{
+			public:
+				virtual const char* what() const throw();
+		};
 };
 
 std::ostream&	operator<<(std::ostream& os, Form& form);
