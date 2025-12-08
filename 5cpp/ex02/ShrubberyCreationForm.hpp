@@ -3,13 +3,14 @@
 
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
+#include <fstream>
 
-class	AForm;
-
-class	ShrubberyCreationForm
+class	ShrubberyCreationForm : public AForm
 {
 	private:
 		std::string	target;
+	protected:
+		void	exec() const;
 	public:
 		//CANONNICAL ORTODOXICAL FORM
 		ShrubberyCreationForm();
