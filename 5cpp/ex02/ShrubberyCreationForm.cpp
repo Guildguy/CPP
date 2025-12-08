@@ -18,7 +18,10 @@ target(copy.target) {}
 ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& form)
 {
     if (this != &form)
+	{
+		AForm::operator=(form);
         this->target = form.target;
+	}
     return (*this);
 }
 
