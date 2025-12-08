@@ -45,7 +45,7 @@ class	AForm
 		};
 
 		//PURE VIRTUAL METHOD
-		virtual void execute(Bureaucrat const & executor) const = 0;
+		virtual void execute(Bureaucrat const & executor) const;
 };
 
 std::ostream&	operator<<(std::ostream& os, const AForm& form);
