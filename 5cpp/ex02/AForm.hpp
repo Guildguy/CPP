@@ -46,6 +46,12 @@ class	AForm
 				virtual const char* what() const throw();
 		};
 
+		class	FormNotSignedException : public std::exception //exceptions
+		{
+			public:
+				virtual const char* what() const throw();
+		};
+
 		//PURE VIRTUAL METHOD
 		virtual void execute(Bureaucrat const & executor) const;
 };
