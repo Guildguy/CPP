@@ -1,53 +1,66 @@
-#include "Bureaucrat.hpp"
-#include "AForm.hpp"
+#include    "Bureaucrat.hpp"
+#include    "AForm.hpp"
+#include    "ShrubberyCreationForm.hpp"
+#include    "RobotomyRequestForm.hpp"
+#include    "PresidentialPardonForm.hpp"
 
-int main() 
+#define     RESET "\033[0m"
+#define     RED "\033[31m"
+#define     GREEN "\033[32m"
+#define     YELLOW "\033[33m"
+
+int main()
 {
-    std::cout << "\n--- 1. INVALID FORM CREATION TEST ---" << std::endl;
-    try 
-    {
-        AForm wrong("WrongForm", 0, 50);
-    } 
-    catch (std::exception &e) 
-    {
-        std::cout << "Successfully caught error: " << e.what() << std::endl;
-    }
+	Bureaucrat boss("The Boss", 1);
+	Bureaucrat manager("Michael Scott", 40);
+	Bureaucrat intern("Stag", 149);
+    ShrubberyCreationForm shrub("home");
 
-    std::cout << "\n--- 2. SUCCESSFUL SIGNATURE TEST ---" << std::endl;
-    try 
-    {
-        Bureaucrat  boss("Boss", 1);
-        AForm        contract("Contract A", 50, 50);
+	std::cout << "\n" << boss << std::endl;
+	std::cout << manager << std::endl;
+	std::cout << intern << std::endl;
+	std::cout << YELLOW << "\n----------------------------------------" << std::endl;
+	std::cout << "TEST 1: SHRUBBERY CREATION FORM (Sign: 145, Exec: 137)" << std::endl;
+	std::cout << "----------------------------------------" << RESET << std::endl;
 
-        std::cout << boss << std::endl;
-        std::cout << contract << std::endl;
+	intern.executeForm(shrub);
+	intern.signForm(shrub);
+	boss.signForm(shrub);
+	intern.executeForm(shrub);
+	manager.executeForm(shrub);
 
-        boss.signForm(contract);
-        
-        std::cout << contract << std::endl;
-    } 
-    catch (std::exception &e) 
-    {
-        std::cout << "Unexpected error: " << e.what() << std::endl;
-    }
+	std::cout << GREEN << "[!] Check if 'home_shrubbery' file was created." << RESET << std::endl;
 
-    std::cout << "\n--- 3. SIGNATURE WITHOUT SUFFICIENT GRADE TEST ---" << std::endl;
-    try 
-    {
-        Bureaucrat  peasant("Peasant", 150);
-        AForm        topSecret("Top Secret Docs", 10, 10);
+    /* *************************************************************************** */
 
-        std::cout << peasant << std::endl;
-        std::cout << topSecret << std::endl;
+	RobotomyRequestForm robot("Zepellin");
 
-        peasant.signForm(topSecret);
+	std::cout << YELLOW << "\n----------------------------------------" << std::endl;
+	std::cout << "TEST 2: ROBOTOMY REQUEST FORM (Sign: 72, Exec: 45)" << std::endl;
+	std::cout << "----------------------------------------" << RESET << std::endl;
 
-        std::cout << topSecret << std::endl;
-    } 
-    catch (std::exception &e) 
-    {
-        std::cout << "Critical error: " << e.what() << std::endl;
-    }
+	manager.signForm(robot);
+	std::cout << "Attempt 1:" << std::endl;
+	manager.executeForm(robot);
+	std::cout << "Attempt 2:" << std::endl;
+	manager.executeForm(robot);
+	std::cout << "Attempt 3:" << std::endl;
+	manager.executeForm(robot);
+	std::cout << "Attempt 4:" << std::endl;
+	manager.executeForm(robot);
 
-    return (0);
+    /* *************************************************************************** */
+    
+	PresidentialPardonForm pardon("Arthur Dent");
+
+	std::cout << YELLOW << "\n----------------------------------------" << std::endl;
+	std::cout << "TEST 3: PRESIDENTIAL PARDON FORM (Sign: 25, Exec: 5)" << std::endl;
+	std::cout << "----------------------------------------" << RESET << std::endl;
+
+	manager.signForm(pardon);
+	boss.signForm(pardon);
+	manager.executeForm(pardon);
+	boss.executeForm(pardon);
+
+	return (0);
 }
