@@ -18,5 +18,4 @@ class	PresidentialPardonForm : public AForm
 		~PresidentialPardonForm();
 };
 
-
 #endif
