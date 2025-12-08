@@ -1,7 +1,7 @@
-#include "Form.hpp"
+#include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
-Form::Form() : 
+AForm::AForm() : 
 name("Wrong form"), 
 isSigned(false), 
 signedRating(0), 
@@ -13,7 +13,7 @@ signedExec(0)
         throw GradeTooLowException();
 }
 
-Form::Form(const std::string name, int gradeToSign, int gradeToExec) :
+AForm::AForm(const std::string name, int gradeToSign, int gradeToExec) :
 name(name),
 isSigned(false),
 signedRating(gradeToSign),
@@ -25,61 +25,61 @@ signedExec(gradeToExec)
 		throw GradeTooLowException();
 }
 
-Form::Form(const Form &copy) : 
+AForm::AForm(const AForm &copy) : 
 name(copy.name), 
 isSigned(copy.isSigned), 
 signedRating(copy.signedRating), 
 signedExec(copy.signedExec) {}
 
-Form&	Form::operator=(const Form& form)
+AForm&	AForm::operator=(const AForm& form)
 {
 	if (this != &form)
 		this->isSigned = form.getIsSigned();
 	return (*this);
 }
 
-Form::~Form() {}
+AForm::~AForm() {}
 
-const char* Form::GradeTooHighException::what() const throw()
+const char* AForm::GradeTooHighException::what() const throw()
 {
-	return ("Form grade is too high!");
+	return ("AForm grade is too high!");
 }
 
-const char* Form::GradeTooLowException::what() const throw()
+const char* AForm::GradeTooLowException::what() const throw()
 {
-	return ("Form grade is too low!");
+	return ("AForm grade is too low!");
 }
 
-std::string	Form::getName() const
+std::string	AForm::getName() const
 {
     return (this->name);
 }
 
-bool	Form::getIsSigned() const
+bool	AForm::getIsSigned() const
 {
     return (this->isSigned);
 }
 
-int		Form::getSignedRating() const
+int		AForm::getSignedRating() const
 {
     return (this->signedRating);
 }
 
-int		Form::getSignedExec() const
+int		AForm::getSignedExec() const
 {
     return (this->signedExec);
 }
 
-void	Form::beSigned(const Bureaucrat& person)
+void	AForm::beSigned(const Bureaucrat& person)
 {
 	if (person.getGrade() > this->signedRating)
-		throw	Form::GradeTooLowException();
+		throw	AForm::GradeTooLowException();
 	this->isSigned = true;
 }
 
-std::ostream&	operator<<(std::ostream& os, const Form& form)
+std::ostream&	operator<<(std::ostream& os, const AForm& form)
 {
-	return (os << "Form " << form.getName() 
+	return (os << "AForm " << form.getName() 
        << ", status: " << (form.getIsSigned() ? "signed" : "not signed")
        << ", sign grade: " << form.getSignedRating()
        << ", exec grade: " << form.getSignedExec());

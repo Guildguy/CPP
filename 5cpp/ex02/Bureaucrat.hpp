@@ -1,9 +1,9 @@
 #ifndef	BUREAUCRAT_HPP
 #define	BUREAUCRAT_HPP
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
-class	Form;
+class	AForm;
 
 class	Bureaucrat
 {
@@ -25,7 +25,7 @@ class	Bureaucrat
 		//AUX
 		void				increment(); //--
 		void				decrement(); //++
-		void				signForm(Form& form); //call Form::beSigned()
+		void				signForm(AForm& form); //call AForm::beSigned()
 
 		//EXCEPTION HANDLER
 		class	GradeTooLowException : public std::exception //exceptions

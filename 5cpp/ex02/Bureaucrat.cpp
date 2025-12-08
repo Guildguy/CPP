@@ -56,7 +56,7 @@ void	Bureaucrat::decrement()
 		throw GradeTooLowException();
 }
 
-void	Bureaucrat::signForm(Form& form)
+void	Bureaucrat::signForm(AForm& form)
 {
 	try
 	{

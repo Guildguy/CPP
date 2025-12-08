@@ -1,12 +1,12 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 int main() 
 {
     std::cout << "\n--- 1. INVALID FORM CREATION TEST ---" << std::endl;
     try 
     {
-        Form wrong("WrongForm", 0, 50);
+        AForm wrong("WrongForm", 0, 50);
     } 
     catch (std::exception &e) 
     {
@@ -17,7 +17,7 @@ int main()
     try 
     {
         Bureaucrat  boss("Boss", 1);
-        Form        contract("Contract A", 50, 50);
+        AForm        contract("Contract A", 50, 50);
 
         std::cout << boss << std::endl;
         std::cout << contract << std::endl;
@@ -35,7 +35,7 @@ int main()
     try 
     {
         Bureaucrat  peasant("Peasant", 150);
-        Form        topSecret("Top Secret Docs", 10, 10);
+        AForm        topSecret("Top Secret Docs", 10, 10);
 
         std::cout << peasant << std::endl;
         std::cout << topSecret << std::endl;

@@ -1,5 +1,5 @@
-#ifndef FORM_HPP
-#define FORM_HPP
+#ifndef AFORM_HPP
+#define AFORM_HPP
 
 #include <iostream>
 #include <string>
@@ -7,7 +7,7 @@
 
 class	Bureaucrat;
 
-class	Form
+class	AForm
 {
 	private:
 		const std::string	name;
@@ -16,11 +16,11 @@ class	Form
 		const int			signedExec;
 	public:
 		//CANONNICAL ORTODOXICAL FORM
-		Form();
-		Form(const std::string name, int gradeToSign, int gradeToExec);
-		Form(const Form &copy);
-		Form& operator=(const Form& form);
-		~Form();
+		AForm();
+		AForm(const std::string name, int gradeToSign, int gradeToExec);
+		AForm(const AForm &copy);
+		AForm& operator=(const AForm& form);
+		~AForm();
 
 		//GETTERS
 		std::string	getName() const;
@@ -45,6 +45,6 @@ class	Form
 		};
 };
 
-std::ostream&	operator<<(std::ostream& os, const Form& form);
+std::ostream&	operator<<(std::ostream& os, const AForm& form);
 
 #endif
