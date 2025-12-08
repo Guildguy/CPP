@@ -27,17 +27,15 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& f
 
 RobotomyRequestForm::~RobotomyRequestForm() {}
 
-void RobotomyRequestForm::exec() const {
-    
-    static bool rand_exist = false;
+void RobotomyRequestForm::exec() const
+{    
+    static bool	rand_exist = false;
 
-    // seed the random generator
     if (!rand_exist) {
         std::srand(std::time(0));
         rand_exist = true;
     }
-
-    // get 50% chance
+	
     if (std::rand() % 2 == 0) {
         std::cout << "SKREEEEEEEEE!\n"
                   << target << " has been robotomized successfully."
