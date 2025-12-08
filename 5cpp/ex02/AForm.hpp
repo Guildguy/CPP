@@ -14,6 +14,8 @@ class	AForm
 		bool				isSigned; //false
 		const int			signedRating;
 		const int			signedExec;
+	protected:
+        virtual void exec() const = 0;
 	public:
 		//CANONNICAL ORTODOXICAL FORM
 		AForm();
