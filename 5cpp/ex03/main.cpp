@@ -1,66 +1,61 @@
-#include    "Bureaucrat.hpp"
-#include    "AForm.hpp"
-#include    "ShrubberyCreationForm.hpp"
-#include    "RobotomyRequestForm.hpp"
-#include    "PresidentialPardonForm.hpp"
+#include <iostream>
+#include "Bureaucrat.hpp"
+#include "AForm.hpp"
+#include "Intern.hpp"
 
-#define     RESET "\033[0m"
-#define     RED "\033[31m"
-#define     GREEN "\033[32m"
-#define     YELLOW "\033[33m"
+#define RESET   "\033[0m"
+#define RED     "\033[31m"
+#define GREEN   "\033[32m"
+#define YELLOW  "\033[33m"
 
 int main()
 {
-	Bureaucrat boss("The Boss", 1);
-	Bureaucrat manager("Michael Scott", 40);
-	Bureaucrat intern("Stag", 149);
-    ShrubberyCreationForm shrub("home");
+    Intern		intern;
+    Bureaucrat	boss("Big Boss", 1);
+    AForm*		form;
 
-	std::cout << "\n" << boss << std::endl;
-	std::cout << manager << std::endl;
-	std::cout << intern << std::endl;
-	std::cout << YELLOW << "\n----------------------------------------" << std::endl;
-	std::cout << "TEST 1: SHRUBBERY CREATION FORM (Sign: 145, Exec: 137)" << std::endl;
-	std::cout << "----------------------------------------" << RESET << std::endl;
-
-	intern.executeForm(shrub);
-	intern.signForm(shrub);
-	boss.signForm(shrub);
-	intern.executeForm(shrub);
-	manager.executeForm(shrub);
-
-	std::cout << GREEN << "[!] Check if 'home_shrubbery' file was created." << RESET << std::endl;
+    std::cout << YELLOW << "\n[TEST 1] Creating 'robotomy request'" << RESET << std::endl;
+    form = intern.makeForm("robotomy request", "Bender");
+    if (form)
+    {
+        boss.signForm(*form);
+        boss.executeForm(*form);
+        delete form;
+    }
 
     /* *************************************************************************** */
 
-	RobotomyRequestForm robot("Zepellin");
-
-	std::cout << YELLOW << "\n----------------------------------------" << std::endl;
-	std::cout << "TEST 2: ROBOTOMY REQUEST FORM (Sign: 72, Exec: 45)" << std::endl;
-	std::cout << "----------------------------------------" << RESET << std::endl;
-
-	manager.signForm(robot);
-	std::cout << "Attempt 1:" << std::endl;
-	manager.executeForm(robot);
-	std::cout << "Attempt 2:" << std::endl;
-	manager.executeForm(robot);
-	std::cout << "Attempt 3:" << std::endl;
-	manager.executeForm(robot);
-	std::cout << "Attempt 4:" << std::endl;
-	manager.executeForm(robot);
+    std::cout << YELLOW << "\n[TEST 2] Creating 'shrubbery creation'" << RESET << std::endl;
+    form = intern.makeForm("shrubbery creation", "Garden");
+    if (form)
+    {
+        boss.signForm(*form);
+        boss.executeForm(*form);
+        delete form;
+    }
 
     /* *************************************************************************** */
-    
-	PresidentialPardonForm pardon("Arthur Dent");
 
-	std::cout << YELLOW << "\n----------------------------------------" << std::endl;
-	std::cout << "TEST 3: PRESIDENTIAL PARDON FORM (Sign: 25, Exec: 5)" << std::endl;
-	std::cout << "----------------------------------------" << RESET << std::endl;
+    std::cout << YELLOW << "\n[TEST 3] Creating 'presidential pardon'" << RESET << std::endl;
+    form = intern.makeForm("presidential pardon", "Ford Prefect");
+    if (form)
+    {
+        boss.signForm(*form);
+        boss.executeForm(*form);
+        delete form;
+    }
 
-	manager.signForm(pardon);
-	boss.signForm(pardon);
-	manager.executeForm(pardon);
-	boss.executeForm(pardon);
+	/* *************************************************************************** */
+	
+    std::cout << YELLOW << "\n[TEST 4] Trying to create a non-existent form" << RESET << std::endl;
+    form = intern.makeForm("salary increase", "Myself");
+    if (form)
+    {
+        std::cout << "This should not appear." << std::endl;
+        delete form;
+    }
+    else
+        std::cout << RED << "Success: Invalid form correctly returned NULL." << RESET << std::endl;
 
-	return (0);
+    return (0);
 }

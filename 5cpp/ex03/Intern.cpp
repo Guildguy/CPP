@@ -1,3 +1,4 @@
+#include "AForm.hpp"
 #include "Intern.hpp"
 
 // CANONICAL ORTHODOX FORM
@@ -17,38 +18,37 @@ Intern& Intern::operator=(const Intern& intern)
 Intern::~Intern() {}
 
 //FORM FUNCTIONS
-AForm* makeShrubbery(const std::string& target)
+AForm*  Intern::createShrubbery(const std::string& target)
 {
 	return new ShrubberyCreationForm(target);
 }
 
-AForm* makeRobotomy(const std::string& target)
+AForm*  Intern::createRobotomy(const std::string& target)
 {
 	return new RobotomyRequestForm(target);
 }
 
-AForm* makePardon(const std::string& target)
+AForm*  Intern::createPardon(const std::string& target)
 {
 	return new PresidentialPardonForm(target);
 }
 
 //FUNCTION POINTER
-typedef AForm* (*FormCreator)(const std::string &);
-
-AForm*	makeForm(std::string const &form, std::string const &target)
+AForm*	Intern::makeForm(std::string const &form, std::string const &target)
 {
-    std::string names[3] =
+    std::string names[] =
 	{
         "shrubbery creation",
         "robotomy request",
         "presidential pardon"
     };
 
-    FormCreator creators[3] =
+    typedef AForm* (Intern::*FPointer)(const std::string&);
+    FPointer creators[] =
 	{
-        &makeShrubbery,
-        &makeRobotomy,
-        &makePardon
+        &Intern::createShrubbery,
+        &Intern::createRobotomy,
+        &Intern::createPardon
     };
 
     for (int i = 0; i < 3; i++)
@@ -56,7 +56,7 @@ AForm*	makeForm(std::string const &form, std::string const &target)
         if (form == names[i])
         {
             std::cout << "Intern creates " << form << std::endl;
-            return (creators[i](target));
+            return ((this->*creators[i])(target));
         }
     }
     std::cout << "Error: form not found!" << std::endl;
