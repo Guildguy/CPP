@@ -86,6 +86,16 @@ const char* AForm::FormNotSignedException::what() const throw()
 	return ("AForm can't be sign!");
 }
 
+//VIRTUAL PURE METHOD
+void AForm::execute(Bureaucrat const & executor) const
+{
+    if (this->getIsSigned() == false)
+        throw AForm::FormNotSignedException();
+    if (executor.getGrade() > this->getSignedExec())
+        throw AForm::GradeTooLowException();
+    this->exec();
+}
+
 std::ostream&	operator<<(std::ostream& os, const AForm& form)
 {
 	return (os << "AForm " << form.getName() 
