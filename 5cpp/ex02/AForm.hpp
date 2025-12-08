@@ -22,7 +22,7 @@ class	AForm
 		AForm(const std::string name, int gradeToSign, int gradeToExec);
 		AForm(const AForm &copy);
 		AForm& operator=(const AForm& form);
-		~AForm();
+		virtual ~AForm();
 
 		//GETTERS
 		std::string	getName() const;
