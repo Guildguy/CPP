@@ -1,6 +1,7 @@
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
 
+//CANONNICAL ORTODOXICAL FORM
 Form::Form() : 
 name("Wrong form"), 
 isSigned(false), 
@@ -40,16 +41,7 @@ Form&	Form::operator=(const Form& form)
 
 Form::~Form() {}
 
-const char* Form::GradeTooHighException::what() const throw()
-{
-	return ("Form grade is too high!");
-}
-
-const char* Form::GradeTooLowException::what() const throw()
-{
-	return ("Form grade is too low!");
-}
-
+//GETTERS
 std::string	Form::getName() const
 {
     return (this->name);
@@ -70,11 +62,23 @@ int		Form::getSignedExec() const
     return (this->signedExec);
 }
 
+//AUX
 void	Form::beSigned(const Bureaucrat& person)
 {
 	if (person.getGrade() > this->signedRating)
 		throw	Form::GradeTooLowException();
 	this->isSigned = true;
+}
+
+//EXCEPTION HANDLER
+const char* Form::GradeTooHighException::what() const throw()
+{
+	return ("Form grade is too high!");
+}
+
+const char* Form::GradeTooLowException::what() const throw()
+{
+	return ("Form grade is too low!");
 }
 
 std::ostream&	operator<<(std::ostream& os, const Form& form)
