@@ -83,7 +83,7 @@ const char* AForm::GradeTooLowException::what() const throw()
 
 const char* AForm::FormNotSignedException::what() const throw()
 {
-	return ("AForm can't be sign!");
+	return ("AForm cannot be executed because it is not signed");
 }
 
 //VIRTUAL PURE METHOD
