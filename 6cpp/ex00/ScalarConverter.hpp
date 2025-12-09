@@ -17,11 +17,18 @@ class	ScalarConverter
 		ScalarConverter&	operator=(const ScalarConverter& convert);
 		~ScalarConverter();
 
+		//DETECTORS
 		static bool	isCharLiteral(const std::string& s);
 		static bool	isIntLiteral(const std::string& i);
 		static bool	isFloatLiteral(const std::string& f);
 		static bool	isDoubleLiteral(const std::string& d);
 		static bool	isPseudoLiteral(const std::string& l);
+
+		//PRINTERS
+		static void	printChar(double v);
+		static void	printInt(double v);
+		static void	printFlt(double v);
+		static void	printDbl(double v);
 	public:
 		//AUX
 		static void	convert(std::string& literal);

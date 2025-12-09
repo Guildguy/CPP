@@ -15,7 +15,7 @@ ScalarConverter&	ScalarConverter::operator=(const ScalarConverter& convert)
 
 ScalarConverter::~ScalarConverter() {}
 
-//
+//DETECTORS
 bool	ScalarConverter::isCharLiteral(const std::string& s)
 {
 	return (s.length() == 1 && !std::isdigit(s[0]));
@@ -100,6 +100,13 @@ bool	ScalarConverter::isPseudoLiteral(const std::string& l)
 		l == "nanf" || l == "+inff" || l == "-inff"
 	);
 }
+
+//PRINTERS
+void	ScalarConverter::printChar(double v) {}
+void	ScalarConverter::printInt(double v) {}
+void	ScalarConverter::printFlt(double v) {}
+void	ScalarConverter::printDbl(double v) {}
+
 
 void	ScalarConverter::convert(std::string& literal)
 {
