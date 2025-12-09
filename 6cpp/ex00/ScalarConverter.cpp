@@ -114,6 +114,7 @@ void	ScalarConverter::printChar(double c)
 	std::cout << 
 	std::endl;
 }
+
 void	ScalarConverter::printInt(double i)
 {
 	std::cout << "int: ";
@@ -125,10 +126,19 @@ void	ScalarConverter::printInt(double i)
 	std::cout << std::endl;
 }
 
-void	ScalarConverter::printFlt(double v) {}
+void	ScalarConverter::printFlt(double f)
+{
+	float	flt = static_cast<float>(f);
+
+	std::cout << "float: " << flt;
+	if (!std::isnan(f) && !std::isinf(f) && (flt - static_cast<int>(flt) == 0))
+		std::cout << ".0f";
+	else
+		std::cout << "f";
+	std::cout << std::endl;
+}
 
 void	ScalarConverter::printDbl(double v) {}
-
 
 void	ScalarConverter::convert(std::string& literal)
 {
@@ -275,12 +285,7 @@ void	ScalarConverter::convert(std::string& literal)
 	/* ** */
 	printInt(convert);
 	/* ** */
-	std::cout << "float: " << static_cast<float>(convert);
-	if (convert - static_cast<int>(convert) == 0)
-		std::cout << ".0f";
-	else
-		std::cout << "f";
-	std::cout << std::endl;
+	printFlt(convert);
 	/* ** */
 	std::cout << "double: " << convert;
 	if (convert - static_cast<int>(convert) == 0)
