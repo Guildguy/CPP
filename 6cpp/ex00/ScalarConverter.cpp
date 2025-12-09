@@ -1,7 +1,6 @@
 #include	"ScalarConverter.hpp"
 
-//static_cast<type>
-
+//CANONNICAL ORTODOXICAL FORM
 ScalarConverter::ScalarConverter() {}
 
 ScalarConverter::ScalarConverter(const ScalarConverter& copy)
@@ -16,9 +15,15 @@ ScalarConverter&	ScalarConverter::operator=(const ScalarConverter& convert)
 
 ScalarConverter::~ScalarConverter() {}
 
+//
+bool	ScalarConverter::isCharLiteral(const std::string& s)
+{
+	return (s.length() == 1 && !std::isdigit(s[0]));
+}
+
 void	ScalarConverter::convert(std::string& literal)
 {
-	if (literal.length() == 1 && !std::isdigit(literal[0]))
+	if (ScalarConverter::isCharLiteral(literal))
 	{
 		char	c = literal[0];
 
@@ -32,6 +37,7 @@ void	ScalarConverter::convert(std::string& literal)
 
 	char	*end;
 	double	dConvert = std::strtod(literal.c_str(), &end);
+
 	if (*end != '\0' && std::string(end) != "f")
 	{
 		std::cout << "char: impossible" << std::endl;

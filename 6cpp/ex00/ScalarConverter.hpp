@@ -16,6 +16,8 @@ class	ScalarConverter
 		ScalarConverter(const ScalarConverter& copy);
 		ScalarConverter&	operator=(const ScalarConverter& convert);
 		~ScalarConverter();
+
+		static bool	isCharLiteral(const std::string& s);
 	public:
 		//AUX
 		static void	convert(std::string& literal);
