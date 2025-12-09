@@ -39,7 +39,7 @@ bool	ScalarConverter::isFloatLiteral(const std::string& f)
 	if (n >= core.length())
 		return (false);
 
-	for (n; n < core.length(); n++)
+	for (; n < core.length(); n++)
 	{
 		if (core[n] == '.')
 		{
@@ -64,7 +64,7 @@ bool	ScalarConverter::isDoubleLiteral(const std::string& d)
 	if (n >= d.length())
 		return (false);
 
-	for (n; n < d.length(); n++)
+	for (; n < d.length(); n++)
 	{
 		if (d[n] == '.')
 		{

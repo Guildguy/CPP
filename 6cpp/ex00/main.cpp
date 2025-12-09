@@ -12,5 +12,5 @@ int	main(int ac, char **av)
 	else
 		std::cout << "Usage: ./ScalarConverter <literal>\n";
 	
-		return (0);
+	return (0);
 }
