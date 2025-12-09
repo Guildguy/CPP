@@ -21,6 +21,7 @@ class	ScalarConverter
 		static bool	isIntLiteral(const std::string& i);
 		static bool	isFloatLiteral(const std::string& f);
 		static bool	isDoubleLiteral(const std::string& d);
+		static bool	isPseudoLiteral(const std::string& l);
 	public:
 		//AUX
 		static void	convert(std::string& literal);
