@@ -2,14 +2,13 @@
 #define	SERIALIZER_HPP
 
 #include <iostream>
-#include <cstdint>
+#include <stdint.h>
 
 //REITERPRET_CAST: "Take these bits and pretend they're this other type. Don't change the bits, just change the label."
 typedef struct	Data
 {
 	int			id;
 	std::string	name;
-	double		value;
 }				Data;
 
 class Serializer

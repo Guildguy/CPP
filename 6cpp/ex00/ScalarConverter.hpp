@@ -8,6 +8,7 @@
 #include <cctype>
 #include <cmath>
 
+//Static cast
 class	ScalarConverter
 {
 	private:
