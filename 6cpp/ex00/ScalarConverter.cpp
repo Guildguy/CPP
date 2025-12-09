@@ -138,7 +138,13 @@ void	ScalarConverter::printFlt(double f)
 	std::cout << std::endl;
 }
 
-void	ScalarConverter::printDbl(double v) {}
+void	ScalarConverter::printDbl(double d)
+{
+	std::cout << "double: " << convert;
+	if (!std::isnan(d) && !std::isinf(d) && (d - static_cast<int>(d) == 0))
+		std::cout << ".0";
+	std::cout << std::endl;
+}
 
 void	ScalarConverter::convert(std::string& literal)
 {
@@ -287,8 +293,5 @@ void	ScalarConverter::convert(std::string& literal)
 	/* ** */
 	printFlt(convert);
 	/* ** */
-	std::cout << "double: " << convert;
-	if (convert - static_cast<int>(convert) == 0)
-		std::cout << ".0";
-	std::cout << std::endl;
+	printDbl(convert);
 }

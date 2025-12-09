@@ -27,8 +27,8 @@ class	ScalarConverter
 		//PRINTERS
 		static void	printChar(double c);
 		static void	printInt(double i);
-		static void	printFlt(double v);
-		static void	printDbl(double v);
+		static void	printFlt(double f);
+		static void	printDbl(double d);
 	public:
 		//AUX
 		static void	convert(std::string& literal);
