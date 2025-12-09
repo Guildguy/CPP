@@ -67,10 +67,34 @@ bool	ScalarConverter::isFloatLiteral(const std::string& f)
 	}
 	return (dot);
 }
+bool	ScalarConverter::isDoubleLiteral(const std::string& d)
+{
+	bool	dot = false;
+	size_t	n = 0;
+
+	if (d[n] == '+' || d[n] == '-')
+		n++;
+
+	if (n >= d.length())
+		return (false);
+
+	for (n; n < d.length(); n++)
+	{
+		if (d[n] == '.')
+		{
+			if (dot)
+				return (false);
+			dot = true;
+		}
+		else if (!std::isdigit(d[n]))
+			return (false);
+	}
+	return (dot);
+}
 
 void	ScalarConverter::convert(std::string& literal)
 {
-	if (ScalarConverter::isCharLiteral(literal))
+	if (isCharLiteral(literal))
 	{
 		char	c = literal[0];
 
@@ -142,6 +166,43 @@ void	ScalarConverter::convert(std::string& literal)
 		return ;
 	}
 
+	if (isDoubleLiteral(literal))
+	{
+		double	d = std::strtod(literal.c_str(), NULL);
+		float	f = static_cast<float>(d);
+
+		std::cout << "char: ";
+		if (std::isnan(d) || std::isinf(d) || d < 0 || d > 127)
+			std::cout << "impossible";
+		else if (!std::isprint(static_cast<char>(d)))
+			std::cout << "Non displayable";
+		else
+			std::cout << "'" << static_cast<char>(d) << "'";
+		std::cout << std::endl;
+		
+		std::cout << "int: ";
+		if (std::isnan(d) || std::isinf(d) ||
+			d < std::numeric_limits<int>::min() || d > std::numeric_limits<int>::max())
+			std::cout << "impossible";
+		else
+			std::cout << static_cast<int>(d);
+			std::cout << std::endl;
+
+		std::cout << "float: " << f;
+		if (d - static_cast<int>(d) == 0)
+			std::cout << ".0f";
+		else
+			std::cout << "f";
+		std::cout << std::endl;
+		
+		std::cout << "double: " << d;
+		if (d - static_cast<int>(d) == 0)
+			std::cout << ".0";
+		std::cout << std::endl;
+		return ;
+	}
+
+	
 
 	char	*end;
 	double	convert = std::strtod(literal.c_str(), &end);
