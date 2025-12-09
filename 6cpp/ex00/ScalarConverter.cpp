@@ -39,6 +39,35 @@ bool	ScalarConverter::isIntLiteral(const std::string& i)
 	return (true);
 }
 
+bool	ScalarConverter::isFloatLiteral(const std::string& f)
+{
+	if (f[f.length() - 1] != 'f')
+		return (false);
+
+	size_t		n = 0;
+	bool		dot = false;
+	std::string	core = f.substr(0, f.length() - 1);
+
+	if (core[n] == '+' || core[n] == '-')
+		n++;
+
+	if (n >= core.length())
+		return (false);
+
+	for (n; n < core.length(); n++)
+	{
+		if (core[n] == '.')
+		{
+			if (dot)
+				return (false);
+			dot = true;
+		}
+		else if (!std::isdigit(core[n]))
+			return (false);
+	}
+	return (dot);
+}
+
 void	ScalarConverter::convert(std::string& literal)
 {
 	if (ScalarConverter::isCharLiteral(literal))
@@ -55,7 +84,8 @@ void	ScalarConverter::convert(std::string& literal)
 
 	if (isIntLiteral(literal))
 	{
-		long n = std::strtol(literal.c_str(), NULL, 10);
+		long	n = std::strtol(literal.c_str(), NULL, 10);
+
 		std::cout << "char: ";
 		if (n < 0 || n > 127)
 		    std::cout << "impossible";
@@ -64,12 +94,54 @@ void	ScalarConverter::convert(std::string& literal)
 		else
 		    std::cout << "'" << static_cast<char>(n) << "'";
 
-		std::cout << std::endl;
+		std::cout << std::endl
+		;
 		std::cout << "int: " << static_cast<int>(n) << std::endl;
+
 		std::cout << "float: " << static_cast<float>(n) << ".0f" << std::endl;
+
 		std::cout << "double: " << static_cast<double>(n) << ".0" << std::endl;
+
 		return ;
 	}
+
+	if (isFloatLiteral(literal))
+	{
+		float	f = static_cast<float>(std::strtod(literal.c_str(), NULL));
+		double	d = static_cast<double>(f);
+		
+		std::cout << "char: ";
+		if (std::isnan(f) || std::isinf(f) || f < 0 || f > 127)
+			std::cout << "impossible";
+		else if (!std::isprint(static_cast<char>(f)))
+			std::cout << "Non displayable";
+		else
+			std::cout << "'" << static_cast<char>(f) << "'";
+		std::cout << std::endl;	
+		
+		std::cout << "int: ";
+		if (std::isnan(f) || std::isinf(f) ||
+			f < std::numeric_limits<int>::min() || f > std::numeric_limits<int>::max())
+			std::cout << "impossible";
+		else
+			std::cout << static_cast<int>(f);
+		std::cout << std::endl;
+
+		std::cout << "float: " << f;
+		if (f - static_cast<int>(f) == 0)
+			std::cout << ".0f";
+		else
+			std::cout << "f";
+		std::cout << std::endl;
+
+		std::cout << "double: " << d;
+		if (d - static_cast<int>(d) == 0)
+			std::cout << ".0";
+		std::cout << std::endl;	
+		
+		return ;
+	}
+
 
 	char	*end;
 	double	convert = std::strtod(literal.c_str(), &end);
