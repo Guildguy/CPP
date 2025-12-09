@@ -23,4 +23,8 @@ void	ScalarConverter::convert(std::string& literal)
 
 		return ;
 	}
+	else
+	{
+		double	dConvert = strtod(&literal);
+	}
 }
