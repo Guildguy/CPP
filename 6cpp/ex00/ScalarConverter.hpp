@@ -7,7 +7,6 @@
 #include <limits>
 #include <cctype>
 #include <cmath>
-#include <bits/stdc++.h>
 
 class	ScalarConverter
 {
