@@ -127,23 +127,7 @@ void	ScalarConverter::convert(std::string& literal)
 	}
 
 	if (isPseudoLiteral(literal))
-	{
-		std::cout << "char: impossible" << std::endl;
-		std::cout << "int: impossible" << std::endl;
-
-		if (literal == "nan" || literal == "+inf" || literal == "-inf")
-		{
-			std::cout << "float: " << literal << "f" << std::endl;
-			std::cout << "double: " << literal << std::endl;
-		}
-		else
-		{
-			std::string core = literal.substr(0, literal.length() - 1);
-			std::cout << "float: " << literal << std::endl;
-			std::cout << "double: " << core << std::endl;
-		}		
-		return ;
-	}
+		return (handlePseudoLiteral(literal));
 
 	char	*end;
 	double	convert = std::strtod(literal.c_str(), &end);

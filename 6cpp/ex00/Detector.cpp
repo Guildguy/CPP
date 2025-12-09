@@ -52,6 +52,7 @@ bool	ScalarConverter::isFloatLiteral(const std::string& f)
 	}
 	return (dot);
 }
+
 bool	ScalarConverter::isDoubleLiteral(const std::string& d)
 {
 	bool	dot = false;
@@ -84,4 +85,23 @@ bool	ScalarConverter::isPseudoLiteral(const std::string& l)
 		l == "nan"  || l == "+inf" || l == "-inf" ||
 		l == "nanf" || l == "+inff" || l == "-inff"
 	);
+}
+
+void	ScalarConverter::handlePseudoLiteral(const std::string& l)
+{
+	std::cout << "char: impossible" << std::endl;
+	std::cout << "int: impossible" << std::endl;
+	
+	if (l == "nan" || l == "+inf" || l == "-inf")
+	{
+		std::cout << "float: " << l << "f" << std::endl;
+		std::cout << "double: " << l << std::endl;
+	}
+	else
+	{
+		std::string core = l.substr(0, l.length() - 1);
+		std::cout << "float: " << l << std::endl;
+		std::cout << "double: " << core << std::endl;
+	}		
+	return ;
 }
