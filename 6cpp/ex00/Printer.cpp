@@ -10,8 +10,7 @@ void	ScalarConverter::printChar(double c)
 		std::cout << "Non displayable";
 	else
 		std::cout << "'" << static_cast<char>(c) << "'";
-	std::cout << 
-	std::endl;
+	std::cout << std::endl;
 }
 
 void	ScalarConverter::printInt(double i)
@@ -39,7 +38,7 @@ void	ScalarConverter::printFlt(double f)
 
 void	ScalarConverter::printDbl(double d)
 {
-	std::cout << "double: " << convert;
+	std::cout << "double: " << d;
 	if (!std::isnan(d) && !std::isinf(d) && (d - static_cast<int>(d) == 0))
 		std::cout << ".0";
 	std::cout << std::endl;

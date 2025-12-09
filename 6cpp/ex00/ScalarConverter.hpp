@@ -23,13 +23,19 @@ class	ScalarConverter
 		static bool	isFloatLiteral(const std::string& f);
 		static bool	isDoubleLiteral(const std::string& d);
 		static bool	isPseudoLiteral(const std::string& l);
+		static void	handlePseudoLiteral(const std::string& l);
 
 		//PRINTERS
 		static void	printChar(double c);
 		static void	printInt(double i);
 		static void	printFlt(double f);
 		static void	printDbl(double d);
-		static void handlePseudoLiteral(const std::string& l);
+
+		//HANDLER
+		static void	handleChar(const std::string& literal);
+		static void	handleInt(const std::string& literal);
+		static void	handleFlt(const std::string& literal);
+		static void	handleDbl(const std::string& literal);
 	public:
 		//AUX
 		static void	convert(std::string& literal);
