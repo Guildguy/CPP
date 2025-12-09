@@ -102,7 +102,17 @@ bool	ScalarConverter::isPseudoLiteral(const std::string& l)
 }
 
 //PRINTERS
-void	ScalarConverter::printChar(double v) {}
+void	ScalarConverter::printChar(double c)
+{
+	std::cout << "char: ";
+	if (std::isnan(c) || std::isinf(c) || c < 0 || c > 127)
+		std::cout << "impossible";
+	else if (!std::isprint(static_cast<char>(c)))
+		std::cout << "Non displayable";
+	else
+		std::cout << "'" << static_cast<char>(c) << "'";
+	std::cout << std::endl;
+}
 void	ScalarConverter::printInt(double v) {}
 void	ScalarConverter::printFlt(double v) {}
 void	ScalarConverter::printDbl(double v) {}
@@ -249,14 +259,7 @@ void	ScalarConverter::convert(std::string& literal)
 		return ;
 	}
 
-	std::cout << "char: ";
-	if (std::isnan(convert) || std::isinf(convert) || convert < 0 || convert > 127)
-		std::cout << "impossible";
-	else if (!std::isprint(static_cast<char>(convert)))
-		std::cout << "Non displayable";
-	else
-		std::cout << "'" << static_cast<char>(convert) << "'";
-	std::cout << std::endl;
+	printChar(convert);
 	/* ** */
 	std::cout << "int: ";
 	if (std::isnan(convert) || std::isinf(convert) ||

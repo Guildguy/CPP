@@ -25,7 +25,7 @@ class	ScalarConverter
 		static bool	isPseudoLiteral(const std::string& l);
 
 		//PRINTERS
-		static void	printChar(double v);
+		static void	printChar(double c);
 		static void	printInt(double v);
 		static void	printFlt(double v);
 		static void	printDbl(double v);
