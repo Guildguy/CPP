@@ -15,7 +15,7 @@ class	Base
 };
 
 Base*	generate(void);
-void	indentify(Base* p);
-void	indentify(Base& p);
+void	identify(Base* p);
+void	identify(Base& p);
 
 #endif
