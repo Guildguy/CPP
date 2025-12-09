@@ -18,7 +18,7 @@ class	ScalarConverter
 		~ScalarConverter();
 
 		//DETECTORS
-		static bool	isCharLiteral(const std::string& s);
+		static bool	isCharLiteral(const std::string& c);
 		static bool	isIntLiteral(const std::string& i);
 		static bool	isFloatLiteral(const std::string& f);
 		static bool	isDoubleLiteral(const std::string& d);
@@ -29,6 +29,7 @@ class	ScalarConverter
 		static void	printInt(double i);
 		static void	printFlt(double f);
 		static void	printDbl(double d);
+		static void handlePseudoLiteral(const std::string& l);
 	public:
 		//AUX
 		static void	convert(std::string& literal);

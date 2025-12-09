@@ -1,9 +1,9 @@
 #include "ScalarConverter.hpp"
 
 //DETECTORS
-bool	ScalarConverter::isCharLiteral(const std::string& s)
+bool	ScalarConverter::isCharLiteral(const std::string& c)
 {
-	return (s.length() == 1 && !std::isdigit(s[0]));
+	return (c.length() == 1 && !std::isdigit(c[0]));
 }
 
 bool	ScalarConverter::isIntLiteral(const std::string& i)
