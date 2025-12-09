@@ -21,6 +21,24 @@ bool	ScalarConverter::isCharLiteral(const std::string& s)
 	return (s.length() == 1 && !std::isdigit(s[0]));
 }
 
+bool	ScalarConverter::isIntLiteral(const std::string& i)
+{
+	size_t	n = 0;
+
+	if (i[n] == '+' || i[n] == '-')
+	    n++;
+	if (n >= i.length())
+	    return (false);
+
+	while (n < i.length())
+	{
+	    if (!std::isdigit(i[n]))
+	        return (false);
+	    n++;
+	}
+	return (true);
+}
+
 void	ScalarConverter::convert(std::string& literal)
 {
 	if (ScalarConverter::isCharLiteral(literal))
@@ -35,8 +53,26 @@ void	ScalarConverter::convert(std::string& literal)
 		return ;
 	}
 
+	if (isIntLiteral(literal))
+	{
+		long n = std::strtol(literal.c_str(), NULL, 10);
+		std::cout << "char: ";
+		if (n < 0 || n > 127)
+		    std::cout << "impossible";
+		else if (!std::isprint(static_cast<char>(n)))
+		    std::cout << "Non displayable";
+		else
+		    std::cout << "'" << static_cast<char>(n) << "'";
+
+		std::cout << std::endl;
+		std::cout << "int: " << static_cast<int>(n) << std::endl;
+		std::cout << "float: " << static_cast<float>(n) << ".0f" << std::endl;
+		std::cout << "double: " << static_cast<double>(n) << ".0" << std::endl;
+		return ;
+	}
+
 	char	*end;
-	double	dConvert = std::strtod(literal.c_str(), &end);
+	double	convert = std::strtod(literal.c_str(), &end);
 
 	if (*end != '\0' && std::string(end) != "f")
 	{
@@ -46,29 +82,33 @@ void	ScalarConverter::convert(std::string& literal)
 		std::cout << "double: impossible" << std::endl;
 		return ;
 	}
+
 	std::cout << "char: ";
-	if (std::isnan(dConvert) || std::isinf(dConvert) || dConvert < 0 || dConvert > 127)
+	if (std::isnan(convert) || std::isinf(convert) || convert < 0 || convert > 127)
 		std::cout << "impossible";
-	else if (!std::isprint(static_cast<char>(dConvert)))
+	else if (!std::isprint(static_cast<char>(convert)))
 		std::cout << "Non displayable";
 	else
-		std::cout << "'" << static_cast<char>(dConvert) << "'";
+		std::cout << "'" << static_cast<char>(convert) << "'";
 	std::cout << std::endl;
+	/* ** */
 	std::cout << "int: ";
-	if (std::isnan(dConvert) || std::isinf(dConvert) || 
-		dConvert < std::numeric_limits<int>::min() || dConvert > std::numeric_limits<int>::max())
+	if (std::isnan(convert) || std::isinf(convert) ||
+		convert < std::numeric_limits<int>::min() || convert > std::numeric_limits<int>::max())
 		std::cout << "impossible";
 	else
-		std::cout << static_cast<int>(dConvert);
+		std::cout << static_cast<int>(convert);
 	std::cout << std::endl;
-	std::cout << "float: " << static_cast<float>(dConvert);
-	if (dConvert - static_cast<int>(dConvert) == 0) 
-		std::cout << ".0f"; 
-	else 
+	/* ** */
+	std::cout << "float: " << static_cast<float>(convert);
+	if (convert - static_cast<int>(convert) == 0)
+		std::cout << ".0f";
+	else
 		std::cout << "f";
 	std::cout << std::endl;
-	std::cout << "double: " << dConvert;
-	if (dConvert - static_cast<int>(dConvert) == 0) 
+	/* ** */
+	std::cout << "double: " << convert;
+	if (convert - static_cast<int>(convert) == 0)
 		std::cout << ".0";
 	std::cout << std::endl;
 }

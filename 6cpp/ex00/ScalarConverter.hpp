@@ -18,6 +18,7 @@ class	ScalarConverter
 		~ScalarConverter();
 
 		static bool	isCharLiteral(const std::string& s);
+		static bool	isIntLiteral(const std::string& i);
 	public:
 		//AUX
 		static void	convert(std::string& literal);
