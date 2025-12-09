@@ -1,4 +1,4 @@
-NAME := Bureaucrat
+NAME := Convert
 
 CC := c++
 
