@@ -26,7 +26,7 @@ class	ScalarConverter
 
 		//PRINTERS
 		static void	printChar(double c);
-		static void	printInt(double v);
+		static void	printInt(double i);
 		static void	printFlt(double v);
 		static void	printDbl(double v);
 	public:

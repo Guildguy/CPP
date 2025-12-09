@@ -111,10 +111,22 @@ void	ScalarConverter::printChar(double c)
 		std::cout << "Non displayable";
 	else
 		std::cout << "'" << static_cast<char>(c) << "'";
+	std::cout << 
+	std::endl;
+}
+void	ScalarConverter::printInt(double i)
+{
+	std::cout << "int: ";
+	if (std::isnan(i) || std::isinf(i) ||
+		i < std::numeric_limits<int>::min() || i > std::numeric_limits<int>::max())
+		std::cout << "impossible";
+	else
+		std::cout << static_cast<int>(i);
 	std::cout << std::endl;
 }
-void	ScalarConverter::printInt(double v) {}
+
 void	ScalarConverter::printFlt(double v) {}
+
 void	ScalarConverter::printDbl(double v) {}
 
 
@@ -261,13 +273,7 @@ void	ScalarConverter::convert(std::string& literal)
 
 	printChar(convert);
 	/* ** */
-	std::cout << "int: ";
-	if (std::isnan(convert) || std::isinf(convert) ||
-		convert < std::numeric_limits<int>::min() || convert > std::numeric_limits<int>::max())
-		std::cout << "impossible";
-	else
-		std::cout << static_cast<int>(convert);
-	std::cout << std::endl;
+	printInt(convert);
 	/* ** */
 	std::cout << "float: " << static_cast<float>(convert);
 	if (convert - static_cast<int>(convert) == 0)
