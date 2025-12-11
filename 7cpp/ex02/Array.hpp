@@ -15,7 +15,7 @@ template <typename T> class	Array
 		Array();
 		Array(unsigned int n);
 		Array(const Array& copy);
-		Array	operator=(const Array& arr);
+		Array&	operator=(const Array& arr);
 		~Array();
 
 		//OVERLOAD
