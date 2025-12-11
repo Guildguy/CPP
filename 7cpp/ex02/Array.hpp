@@ -24,6 +24,15 @@ template <typename T> class	Array
 
 		//AUX
 		unsigned int	size(void) const;
+
+		class	OutOfBoundsException : public std::exception
+		{
+			public:
+				virtual const char* what() const throw()
+				{
+					return ("Index out of bounds");
+				}
+		};
 };
 
 #include "Template.tpp"
