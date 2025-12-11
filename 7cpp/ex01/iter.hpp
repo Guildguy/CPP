@@ -13,7 +13,7 @@ void	iter(T* arr, size_t const lenght, F func)
 }
 
 template <typename T>
-void print(T &i) 
+void printOnCPP(T &i) 
 {
 	std::cout << i << std::endl;
 }

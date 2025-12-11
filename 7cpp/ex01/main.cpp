@@ -6,7 +6,7 @@ int main()
 
 	::iter(array, 4, addOne);
 
-	::iter(array, 4, print<int>);
+	::iter(array, 4, printOnCPP<int>);
 
 	return (0);
 }
