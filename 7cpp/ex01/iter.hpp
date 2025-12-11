@@ -3,8 +3,17 @@
 
 #include <iostream>
 
-template	<typename T, typename F>
-void	iter(T* arr, size_t const lenght, F func) 
+template	<typename T>
+void	iter(T* arr, size_t lenght, void (*func)(T&)) 
+{
+	if (!arr || !func)
+		return ;
+	for (size_t i = 0; i < lenght; i++)
+		func(arr[i]);
+}
+
+template	<typename T>
+void	iter(const T* arr, size_t lenght, void (*func)(const T&)) 
 {
 	if (!arr || !func)
 		return ;
