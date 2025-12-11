@@ -57,7 +57,7 @@ Array<T>::~Array()
 template <typename T>
 T&	Array<T>::operator[](unsigned int i)
 {
-	if (i >= this->_size)
+	if (i > this->_size)
 		throw std::exception();
 	return (this->_data[i]);
 }
@@ -65,7 +65,7 @@ T&	Array<T>::operator[](unsigned int i)
 template <typename T>
 const T&	Array<T>::operator[](unsigned int i) const
 {
-	if (i >= this->_size)
+	if (i > this->_size)
 		throw std::exception();
 	return (this->_data[i]);
 }
