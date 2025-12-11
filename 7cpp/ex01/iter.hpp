@@ -12,4 +12,15 @@ void	iter(T* arr, size_t const lenght, F func)
 		func(arr[i]);
 }
 
+template <typename T>
+void print(T &i) 
+{
+	std::cout << i << std::endl;
+}
+
+void addOne(int &i)
+{
+	i++;
+}
+
 #endif
