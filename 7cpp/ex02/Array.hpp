@@ -8,8 +8,8 @@
 template <typename T> class	Array
 {
 	private:
-		T*				data;
-		unsigned int	size;
+		T*				_data;
+		unsigned int	_size;
 	public:
 		//CANONNICAL ORTODOXICAL FORM
 		Array();
