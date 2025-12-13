@@ -12,14 +12,9 @@ L_DATE("2009-01-02"),
 H_DATE("2022-03-29")
 {
     // parse data.csv received
-    std::map<std::string, float> data = parseDataFile(data_file);
-    
-    if (data.empty())
-    {
-        std::cerr << "Error: data file is incorrectly formatted" << std::endl;
-        return ;
-    }
-    exchange_rates = data;
+    exchange_rates = parseDataFile(data_file);
+    if (exchange_rates.empty())
+        std::cerr << "Error: data file is empty or incorrectly formatted" << std::endl;
 }
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange &copy)
@@ -39,11 +34,10 @@ BitcoinExchange::~BitcoinExchange(void) {}
 // main method
 void BitcoinExchange::BtcExchange(std::ifstream &file)
 {
+    std::string line, date, value; // store lines read, date n' value from line
 
-    std::string line; // variable to store lines read from file
-    std::string date; // store date from line
-    std::string value; // store value from line
-
+    if (exchange_rates.empty())
+        return ;
     // read from file line by line with while loop
     //std::getline(file, line); // skip header from data file
     while (std::getline(file, line))
