@@ -29,8 +29,8 @@ class	BitcoinExchange
     	BitcoinExchange();
     	BitcoinExchange(std::string data_file);
     	BitcoinExchange(const BitcoinExchange& copy);
-    	~BitcoinExchange();
     	BitcoinExchange&	operator=(const BitcoinExchange& exchange);
+    	~BitcoinExchange();
 
     	//AUX
     	void    BtcExchange(std::ifstream& file);
