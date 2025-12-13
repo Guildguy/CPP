@@ -2,9 +2,9 @@
 
 //CANONNICAL ORTODOXICAL FORM
 BitcoinExchange::BitcoinExchange(void) : 
-exchange_rates(), 
 L_DATE("2009-01-02"), 
-H_DATE("2022-03-29") 
+H_DATE("2022-03-29"),
+exchange_rates()
 {}
 
 BitcoinExchange::BitcoinExchange(std::string data_file) : 
