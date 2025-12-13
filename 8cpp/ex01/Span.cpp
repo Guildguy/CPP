@@ -23,14 +23,20 @@ Span &Span::operator=(const Span &span)
 Span::~Span(){};
 
 //AUX
-void Span::addNumber(int i)
+void	Span::addNumber(int i)
 {
 	if (_vec.size() >= _N)
 		throw std::overflow_error("Error! Span is full");
 	_vec.push_back(i);
 }
+void	Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end)
+{
+	if (_vec.size() + std::distance(begin, end) > _N)
+				throw std::out_of_range("Not enough space in Span!");
+	_vec.insert(_vec.end(), begin, end);
+}
 
-int Span::shortestSpan()
+int	Span::shortestSpan()
 {
 	if (_vec.size() <= 1)
 		throw std::length_error("Not enough numbers!");

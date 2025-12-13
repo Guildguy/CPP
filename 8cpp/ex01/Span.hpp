@@ -21,14 +21,7 @@ class Span
 		Span&	operator=(const Span& span);
 		~Span();
 
-		//TEMPLATE
-		template<typename It>
-		void			addNumber(It begin, It end) //adds a range of nbrs
-		{
-			if (_vec.size() + std::distance(begin, end) > _N)
-						throw std::out_of_range("Not enough space in Span!");
-			_vec.insert(_vec.end(), begin, end);
-		}
+		void	addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end);
 
 		//AUX
 		void			addNumber(int n); //adds a single nbr

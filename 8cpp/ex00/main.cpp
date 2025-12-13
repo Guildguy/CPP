@@ -20,6 +20,7 @@ int main()
 		std::cout << "Found: " << *itr << std::endl;
 		std::cout << "Found: " << *itr_l << std::endl;
 		itr = easyfind(vec, 10);
+		std::cout << "Found: " << *itr << std::endl;
 
 	}
 	catch (const std::runtime_error &e)
