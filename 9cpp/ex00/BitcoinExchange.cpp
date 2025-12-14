@@ -95,7 +95,6 @@ float BitcoinExchange::findExchangeRate(const std::string &date) const
 
 bool BitcoinExchange::isDateValid(const std::string &date) const
 {
-
     // YYYY-MM-DD
     int year, month, day;
 
@@ -129,7 +128,6 @@ bool BitcoinExchange::isDateValid(const std::string &date) const
 
 bool BitcoinExchange::isValueValid(const std::string &value, bool check_limits) const
 {
-    
     if (value.empty())
     {
         printBadInputMessage("invalid value", value);
@@ -178,7 +176,6 @@ bool BitcoinExchange::isValueValid(const std::string &value, bool check_limits) 
 
 std::map<std::string, float> BitcoinExchange::parseDataFile(const std::string &arg) const
 {
-
     std::map<std::string, float>    temp; // map to store date and value
     std::string                     line; // variable to store lines read from file
     std::string                     date; // store date from line
