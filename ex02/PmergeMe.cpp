@@ -1,5 +1,6 @@
 #include "PmergeMe.hpp"
 
+//CANNONICAL ORTODOXICAL FORM
 PmergeMe::PmergeMe() :
 n_vec(),
 n_deq()
@@ -56,6 +57,7 @@ void PmergeMe::parseTheInput(int ac, char **av)
 		throw std::invalid_argument("Error: No valid numbers provided");
 }
 
+//PRINT
 void	PmergeMe::printVec()
 {
 	for (std::vector<int>::iterator it = n_vec.begin(); it != n_vec.end(); ++it)
@@ -71,18 +73,18 @@ void	PmergeMe::printDeq()
 }
 
 //GETTER
-std::vector<int>	PmergeMe::getVector() const
+std::vector<int>    PmergeMe::getVector() const
 {
 	return (this->n_vec);
 }
 
-std::deque<int>	PmergeMe::getDeque() const
+std::deque<int>     PmergeMe::getDeque() const
 {
 	return (this->n_deq);
 }
 
 //ALGORITHM
-std::vector<int>	PmergeMe::JacobSthalSequence(int limit)
+std::vector<int>    PmergeMe::JacobSthalSequence(int limit)
 {
 	std::vector<int>	sequence;
 	int					next;
@@ -98,7 +100,6 @@ std::vector<int>	PmergeMe::JacobSthalSequence(int limit)
 	}
 	return (sequence);
 }
-
 
 //VECTOR
 void	PmergeMe::splitPairsVec(const std::vector<int>& vec, std::vector<int>& winner, std::vector<int>& loser)
@@ -261,5 +262,3 @@ std::deque<int>		PmergeMe::mergeInsertAlgorithmDeq(std::deque<int> deq)
 
 	return (winner);
 }
-
-
