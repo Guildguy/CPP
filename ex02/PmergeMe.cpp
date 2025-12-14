@@ -72,6 +72,14 @@ void	PmergeMe::printDeq()
 	std::cout << std::endl;
 }
 
+void    PmergeMe::printProcessingTime(std::clock_t start, std::clock_t end, size_t size, std::string containerType)
+{
+    double  duration = static_cast<double>(end - start) * 1000000.0 / CLOCKS_PER_SEC;
+
+    std::cout << "Time to process a range of " << size << " elements with std::" << containerType << " : " 
+    << std::fixed << std::setprecision(5) << duration << " us" << std::endl;
+}
+
 //GETTER
 std::vector<int>    PmergeMe::getVector() const
 {

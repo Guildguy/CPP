@@ -9,6 +9,7 @@
 #include <ctime>
 #include <climits>
 #include <algorithm> 
+#include <iomanip>
 
 class	PmergeMe
 {
@@ -28,6 +29,7 @@ class	PmergeMe
 		//PRINT
 		void	printVec();
 		void	printDeq();
+		void    printProcessingTime(std::clock_t start, std::clock_t end, size_t size, std::string containerType);
 
 		//GETTER
 		std::vector<int>	getVector() const;
